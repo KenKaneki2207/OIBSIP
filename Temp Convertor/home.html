@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp Converter</title>
+    <style>
+        body {
+            text-align: center;
+            margin: auto;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        input,
+        select {
+            font-size: large;
+            padding: 10px;
+            width: 150px;
+            margin: 15px;
+            border: 3px solid black;
+            background-color: rgb(69, 255, 255);
+        }
+
+        button{
+            padding: 10px;
+            font-size: large;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TEMPERATURE CONVERTION</h1>
+        <input type="number" id="temp" placeholder="Temperature" >
+
+        <select name="type" id="type" aria-placeholder="Type" style="width: 150px;">
+            <option value="Fahrenheit" id="f">Fahrenheit</option>
+            <option value="Celsius" id="c">Celsius</option>
+        </select><br>
+
+        <input type="number" id="result" readonly><br>
+
+        <button type="submit" onclick="convert()" >Convert</button>
+
+    <script type="text/javascript">
+        var tempInput = document.getElementById('temp');
+        var typeSelect = document.getElementById('type');
+        var output = document.getElementById('result');
+
+        function convert() {
+            var temp = parseFloat(tempInput.value);
+
+            if (typeSelect.value === 'Fahrenheit') {
+                output.value = (temp - 32) * 5 / 9;
+            } else if (typeSelect.value === 'Celsius') {
+                output.value = (temp * 9 / 5) + 32;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
